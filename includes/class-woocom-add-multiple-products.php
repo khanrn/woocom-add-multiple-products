@@ -149,10 +149,10 @@ class Woocom_Add_Multiple_Products {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Woocom_Add_Multiple_Products_Admin( $this->get_sodathemes_wamp(), $this->get_version() );
+		$sodathemes_wamp_admin = new Woocom_Add_Multiple_Products_Admin( $this->get_sodathemes_wamp(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $sodathemes_wamp_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $sodathemes_wamp_admin, 'enqueue_scripts' );
 
 	}
 
@@ -165,21 +165,21 @@ class Woocom_Add_Multiple_Products {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Woocom_Add_Multiple_Products_Public( $this->get_sodathemes_wamp(), $this->get_version() );
+		$sodathemes_wamp_public = new Woocom_Add_Multiple_Products_Public( $this->get_sodathemes_wamp(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $sodathemes_wamp_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $sodathemes_wamp_public, 'enqueue_scripts' );
 
         // Action Hooks.
-        $this->loader->add_action( 'woocommerce_after_cart', $plugin_public, 'woocom_amp_product_input_from' );
-        $this->loader->add_action( 'woocommerce_cart_is_empty', $plugin_public, 'woocom_amp_product_input_from' );
+        $this->loader->add_action( 'woocommerce_after_cart', $sodathemes_wamp_public, 'woocom_amp_product_input_from' );
+        $this->loader->add_action( 'woocommerce_cart_is_empty', $sodathemes_wamp_public, 'woocom_amp_product_input_from' );
         
         // Ajax product adding action hooks.
-        $this->loader->add_action( 'wp_ajax_woocom_amp_add_to_cart', $plugin_public, 'woocom_amp_add_to_cart' );
-		$this->loader->add_action( 'wp_ajax_nopriv_woocom_amp_add_to_cart', $plugin_public, 'woocom_amp_add_to_cart' );
+        $this->loader->add_action( 'wp_ajax_woocom_amp_add_to_cart', $sodathemes_wamp_public, 'woocom_amp_add_to_cart' );
+		$this->loader->add_action( 'wp_ajax_nopriv_woocom_amp_add_to_cart', $sodathemes_wamp_public, 'woocom_amp_add_to_cart' );
 		
 		// Shortcode for adding products input to different places
-        add_shortcode( 'wamp_product_input', array( $plugin_public, 'woocom_amp_product_input_from' ) );
+        add_shortcode( 'wamp_product_input', array( $sodathemes_wamp_public, 'woocom_amp_product_input_from' ) );
 	}
 
 	/**
