@@ -77,4 +77,13 @@ function run_woocom_add_multiple_products() {
  **/
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	run_woocom_add_multiple_products();
+} else {
+	add_action( 'admin_notices', 'sodathemes_wamp_admin_notice__error' );
+}
+
+function sodathemes_wamp_admin_notice__error() {
+	$class = 'notice notice-error';
+	$message = __( 'You don\'t have WooCommerce activated. Please Activate WooCommerce and then try to activate again WooCom Add Multiple Products.', 'sodathemes' );
+
+	printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message ); 
 }

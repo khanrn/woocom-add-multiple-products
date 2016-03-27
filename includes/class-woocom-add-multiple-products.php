@@ -153,7 +153,8 @@ class Woocom_Add_Multiple_Products {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $sodathemes_wamp_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $sodathemes_wamp_admin, 'enqueue_scripts' );
-
+		
+		$this->loader->add_action( 'admin_menu', $sodathemes_wamp_admin, 'woocom_amp_admin_menu_page' );
 	}
 
 	/**

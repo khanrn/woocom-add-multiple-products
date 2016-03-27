@@ -99,5 +99,70 @@ class Woocom_Add_Multiple_Products_Admin {
 		wp_enqueue_script( $this->sodathemes_wamp, plugin_dir_url( __FILE__ ) . 'js/woocom-add-multiple-products-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+	
+	public function register_extensions() {
+		$extension = array(
+			'dwqa-markdown' => array(
+				'name' => __( 'DWQA Markdown', 'dwqa' ),
+				'url' => 'http://bit.ly/dwqa-markdown',
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-markdown.png'
+			),
+
+			'dwqa-leaderboard' => array(
+				'name' => __( 'DWQA Leaderboard', 'dwqa' ),
+				'url' => 'http://bit.ly/dwqa-leaderboard',
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-leaderboard.png'
+			),
+
+			'dwqa-captcha' => array(
+				'name' => __( 'DWQA Captcha', 'dwqa' ),
+				'url' => 'http://bit.ly/dwqa-captcha',
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-captcha.png',
+			),
+
+			'dwqa-embed-question' => array(
+				'name' => __( 'DWQA Embed Question', 'dwqa' ),
+				'url' => 'http://bit.ly/dwqa-embed-questions',
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-embedquestion.png'
+			),
+
+			'dwqa-widgets' => array(
+				'name' => __( 'DWQA Widgets', 'dwqa' ),
+				'url'	=> 'http://bit.ly/dwqa-widgets',
+				'img_url'	=> plugin_dir_url( __FILE__ ) . 'img/dw-widgets.png'
+			),
+		);
+
+		return $extension;
+	}
+	// Admin Menu Page Calling function.
+	public function woocom_amp_admin_menu_page() {
+
+		add_menu_page(
+			'WooCom Add Multiple Products', 
+			'WooCom AMP', 
+			'manage_options', 
+			'woocom-add-multiple-products', 
+			array( $this, 'woocom_amp_admin_settings_page' ) , 
+			'dashicons-layout'
+		);
+		//create new top-level menu
+		add_submenu_page(
+			'woocom-add-multiple-products',
+			'Other Premium Products', 
+			'Go Premium', 
+			'read', 
+			'sodathemes-other-products', 
+			array( $this, 'sodathemes_other_products' )
+		);
+	}
+	// Admin Settings Page Function
+	public function woocom_amp_admin_settings_page() {
+		include 'partials/html-sodathemes-current-product.php';
+	}
+	// Other Products Function
+	public function sodathemes_other_products() {
+		include 'partials/html-sodathemes-other-products.php';
+	}
 
 }
