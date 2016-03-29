@@ -28,23 +28,22 @@
     color: #fff;">SODATHEMES</div>
 	
 	<div class="headline-feature feature-section one-col" style="max-width: 100%">
-		<h2 style="text-align: left"><?php _e( 'Woocom Add Multiple Products Pro' ); ?></h2>
+		<h2 style="text-align: left"><?php _e( 'Woocom Add Multiple Products Pro Features !' ); ?></h2>
 		<div class="two-col">
-			<div class="col">
-				<h3><?php _e( 'Introducing Twenty Sixteen' ); ?></h3>
-				<p><?php _e( 'Our newest default theme, Twenty Sixteen, is a modern take on a classic blog design.' ); ?></p>
-				<p><?php _e( 'Twenty Sixteen was built to look great on any device. A fluid grid design, flexible header, fun color schemes, and more, will make your content shine.' ); ?></p>
-				<div class="horizontal-image">
-					<div class="content">
-						<!-- <img class="feature-image horizontal-screen" src="https://s.w.org/images/core/4.4/twenty-sixteen-dark-fullsize-2x.png?2" alt=""  srcset="https://s.w.org/images/core/4.4/twenty-sixteen-dark-smartphone-1x.png?2 268w, https://s.w.org/images/core/4.4/twenty-sixteen-dark-smartphone-2x.png?2 535w, https://s.w.org/images/core/4.4/twenty-sixteen-dark-desktop-1x.png?2 558w, https://s.w.org/images/core/4.4/twenty-sixteen-dark-fullsize-1x.png?2 783w, https://s.w.org/images/core/4.4/twenty-sixteen-dark-desktop-2x.png?2 1116w, https://s.w.org/images/core/4.4/twenty-sixteen-dark-fullsize-2x.png?2 1566w" sizes="(max-width: 500px) calc((100vw - 40px) * .8), (max-width: 782px) calc((100vw - 70px) * .8), (max-width: 960px) calc((100vw - 116px) * .5216), (max-width: 1290px) calc((100vw - 240px) * .5216), 548px" /> -->
-					</div>
-				</div>
-			</div>
-			<div class="col feature-image">
-				<!-- <img class="vertical-screen" src="https://s.w.org/images/core/4.4/twenty-sixteen-red-fullsize-2x.png" alt="" srcset="https://s.w.org/images/core/4.4/twenty-sixteen-red-smartphone-1x.png 107w, https://s.w.org/images/core/4.4/twenty-sixteen-red-smartphone-2x.png 214w, https://s.w.org/images/core/4.4/twenty-sixteen-red-desktop-1x.png 252w, https://s.w.org/images/core/4.4/twenty-sixteen-red-fullsize-1x.png 410w, https://s.w.org/images/core/4.4/twenty-sixteen-red-desktop-2x.png 504w, https://s.w.org/images/core/4.4/twenty-sixteen-red-fullsize-2x.png 820w" sizes="(max-width: 500px) calc((100vw - 40px) * .32), (max-width: 782px) calc((100vw - 70px) * .32), (max-width: 960px) calc((100vw - 116px) * .24), (max-width: 1290px) calc((100vw - 240px) * .24), 252px" /> -->
-			</div>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Select "Product Category" Option' ); ?></h3>
+			<p><?php _e( 'With pro version now you can select single or multiple product categories from which the products should be appeared in the dropdown list.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Auth Restriction Option' ); ?></h3>
+			<p><?php _e( 'With pro version\'s "Auth Restrict" option you can define if only logged in user can use the form or all user can use the form.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Use Role Select Option.' ); ?></h3>
+			<p><?php _e( 'If you want to give access to the product dropdown list to the user has a certain role, you can do that with this option. This option is only available for pro version.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Shrotcode Functionality' ); ?></h3>
+			<p><?php _e( 'This product has a shortcode. And with this shortcode you can render the product dropdown list any where you want.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Dynamic Category ID Option For Shortcode' ); ?></h3>
+			<p><?php _e( 'For pro version, we provide a "prod_cat" field with shortcode. If you want to display the products from certain category ( or categories ) in dropdown list, it should do it.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Dynamic Widget' ); ?></h3>
+			<p><?php _e( 'A dynamic widget is included with the pro version. With this you can show the product dropdown list with widget.' ); ?></p>
+			<h3><i class="fa fa-check-square-o"></i><?php _e( 'Very Easy To Use' ); ?></h3>
+			<p><?php _e( 'it\'s very easy to use. Just install like any other plugin and you\'ll understand how to use it.' ); ?></p>
 		</div>
 	</div>
-
-	<hr />
 </div>

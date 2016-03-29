@@ -75,6 +75,7 @@ class Woocom_Add_Multiple_Products_Admin {
 
 		wp_enqueue_style( $this->sodathemes_wamp, plugin_dir_url( __FILE__ ) . 'css/woocom-add-multiple-products-admin.css', array(), $this->version, 'all' );
 
+		wp_enqueue_style( 'sodathemes-wamp-font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), '4.5.0' );
 	}
 
 	/**
@@ -102,33 +103,33 @@ class Woocom_Add_Multiple_Products_Admin {
 	
 	public function register_extensions() {
 		$extension = array(
-			'dwqa-markdown' => array(
-				'name' => __( 'DWQA Markdown', 'dwqa' ),
-				'url' => 'http://bit.ly/dwqa-markdown',
+			'tiny-youtube-post-widget-pro' => array(
+				'name' => __( 'Tiny YouTube Post Widget Pro', 'dwqa' ),
+				'url' => 'http://sodathemes.com/product/tiny-youtube-post-widget-pro',
 				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-markdown.png'
 			),
 
-			'dwqa-leaderboard' => array(
-				'name' => __( 'DWQA Leaderboard', 'dwqa' ),
-				'url' => 'http://bit.ly/dwqa-leaderboard',
+			'woocom-straight-checkout-pro' => array(
+				'name' => __( 'WooCom Straight Checkout Pro', 'dwqa' ),
+				'url' => 'http://sodathemes.com/product/woocom-straight-checkout-pro',
 				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-leaderboard.png'
 			),
 
-			'dwqa-captcha' => array(
-				'name' => __( 'DWQA Captcha', 'dwqa' ),
-				'url' => 'http://bit.ly/dwqa-captcha',
+			'woocom-live-preview-pro' => array(
+				'name' => __( 'WooCom Live Preview Pro', 'dwqa' ),
+				'url' => 'http://sodathemes.com/product/woocom-live-preview-pro',
 				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-captcha.png',
 			),
 
-			'dwqa-embed-question' => array(
-				'name' => __( 'DWQA Embed Question', 'dwqa' ),
-				'url' => 'http://bit.ly/dwqa-embed-questions',
+			'woocom-auto-parts-search-pro' => array(
+				'name' => __( 'WooCom Auto Parts Search Pro', 'dwqa' ),
+				'url' => 'http://sodathemes.com/product/woocom-auto-parts-search-pro',
 				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-embedquestion.png'
 			),
 
-			'dwqa-widgets' => array(
-				'name' => __( 'DWQA Widgets', 'dwqa' ),
-				'url'	=> 'http://bit.ly/dwqa-widgets',
+			'woocom-smart-product-suggestions-pro' => array(
+				'name' => __( 'WooCom Smart Product Suggestions Pro', 'dwqa' ),
+				'url'	=> 'http://sodathemes.com/product/woocom-smart-product-suggestions-pro',
 				'img_url'	=> plugin_dir_url( __FILE__ ) . 'img/dw-widgets.png'
 			),
 		);

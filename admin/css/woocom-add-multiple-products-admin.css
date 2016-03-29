@@ -2,3 +2,7 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+.two-col > h3 > i.fa {
+    padding-right: 10px;
+}
