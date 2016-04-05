@@ -104,33 +104,15 @@ class Woocom_Add_Multiple_Products_Admin {
 	public function register_extensions() {
 		$extension = array(
 			'tiny-youtube-post-widget-pro' => array(
-				'name' => __( 'Tiny YouTube Post Widget Pro', 'dwqa' ),
+				'name' => __( 'Tiny YouTube Post Widget Pro', 'sodathemes' ),
 				'url' => 'http://sodathemes.com/product/tiny-youtube-post-widget-pro',
-				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-markdown.png'
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/sodathemes-typw.png'
 			),
 
 			'woocom-straight-checkout-pro' => array(
-				'name' => __( 'WooCom Straight Checkout Pro', 'dwqa' ),
+				'name' => __( 'WooCom Straight Checkout Pro', 'sodathemes' ),
 				'url' => 'http://sodathemes.com/product/woocom-straight-checkout-pro',
-				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-leaderboard.png'
-			),
-
-			'woocom-live-preview-pro' => array(
-				'name' => __( 'WooCom Live Preview Pro', 'dwqa' ),
-				'url' => 'http://sodathemes.com/product/woocom-live-preview-pro',
-				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-captcha.png',
-			),
-
-			'woocom-auto-parts-search-pro' => array(
-				'name' => __( 'WooCom Auto Parts Search Pro', 'dwqa' ),
-				'url' => 'http://sodathemes.com/product/woocom-auto-parts-search-pro',
-				'img_url' => plugin_dir_url( __FILE__ ) . 'img/dw-embedquestion.png'
-			),
-
-			'woocom-smart-product-suggestions-pro' => array(
-				'name' => __( 'WooCom Smart Product Suggestions Pro', 'dwqa' ),
-				'url'	=> 'http://sodathemes.com/product/woocom-smart-product-suggestions-pro',
-				'img_url'	=> plugin_dir_url( __FILE__ ) . 'img/dw-widgets.png'
+				'img_url' => plugin_dir_url( __FILE__ ) . 'img/sodathemes-wsc.png'
 			),
 		);
 
@@ -145,7 +127,8 @@ class Woocom_Add_Multiple_Products_Admin {
 			'manage_options', 
 			'woocom-add-multiple-products', 
 			array( $this, 'woocom_amp_admin_settings_page' ) , 
-			'dashicons-layout'
+			'dashicons-layout',
+			30
 		);
 		//create new top-level menu
 		add_submenu_page(
@@ -153,7 +136,7 @@ class Woocom_Add_Multiple_Products_Admin {
 			'Other Premium Products', 
 			'Go Premium', 
 			'read', 
-			'sodathemes-other-products', 
+			'wamp-other-products', 
 			array( $this, 'sodathemes_other_products' )
 		);
 	}
