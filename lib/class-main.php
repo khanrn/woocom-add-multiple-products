@@ -64,10 +64,10 @@ class WooCom_Add_Multiple_Products_Main {
                 $r_prods = $loop->get_posts();
             ?>
             <div id="wamp_form">
-                <h4>Add Product...</h4>
+                <h4><?php _e( 'Add Product(s)...', 'sodathemes' )?></h4>
                 <!-- multiple dropdown -->
-                <select id="select-box" data-placeholder="Choose a product..." multiple class="chzn-select">
-                    <optgroup label="Choose Products by SKU or Name....">
+                <select id="wamp_select_box" data-placeholder="<?php _e( 'Choose a product...', 'sodathemes' )?>" multiple class="chzn-select">
+                    <optgroup label="<?php _e( 'Choose Products by SKU or Name....', 'sodathemes' )?>">
             <?php
                
                 // Loop start.
@@ -75,9 +75,9 @@ class WooCom_Add_Multiple_Products_Main {
                     $product = new WC_Product( $r_prod );
                     $sku = $product->get_sku();
                     if ( ! $product->is_in_stock() ) { 
-                        $stock = ' -- Out of stock'; 
+                        $stock = __( ' -- Out of stock', 'sodathemes' ); 
                     } else { 
-                        $stock = ' -- In stock';
+                        $stock = __( ' -- In stock', 'sodathemes' );
                     }
             ?>
                         <option data-prod="<?php echo $sku; ?>" value="<?php echo $r_prod; ?>" <?php if ( ! $product->is_in_stock() ) { echo 'disabled'; }?>><?php echo $sku . " -- " . get_the_title( $r_prod ) . $stock; ?></option>
@@ -88,7 +88,7 @@ class WooCom_Add_Multiple_Products_Main {
             ?>
                     </optgroup>
                 </select>
-                <button id="select-button" type="button" class="button add_order_item wamp_add_order_item">Add item(s)</button>
+                <button id="wamp_add_items_button" type="button" class="button add_order_item wamp_add_order_item"><?php _e( 'Add Item(s)', 'sodathemes' )?></button>
             </div>
             <?php
         }

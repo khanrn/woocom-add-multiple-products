@@ -1,4 +1,4 @@
-# WooCom Add Multiple Products `1.0.0`
+# WooCom Add Multiple Products `1.0.9`
 A plugin for adding bulk product by SKU or product name to cart when you're in cart.
 
 # Description
@@ -31,6 +31,9 @@ Yes. Use the shortcode. Just place the shortcode where you wanna put the input f
 Yes. You can.
 
 # Changelog
+
+## 1.0.9
+* Shortcode added.
 
 ## 1.0.0
 * Initial version.

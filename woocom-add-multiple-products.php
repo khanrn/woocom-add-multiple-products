@@ -2,9 +2,9 @@
 
 /*
   Plugin Name: WooCom Add Multiple Products
-  Plugin URI: https://rnaby.com
+  Plugin URI: https://sodathemes.com
   Description: A plugin for adding multiple product to cart.
-  Version: 1.0.0
+  Version: 1.0.9
   Author: Khan Mohammad Rashedun-Naby
   Author URI: http://bd.linkedin.com/in/rnaby
   License: GPL V3
