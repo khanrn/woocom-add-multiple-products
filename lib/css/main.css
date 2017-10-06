@@ -1,0 +1,15 @@
+#select-button {
+    width: 20% !important;
+}
+#select-box {
+    width: 80% !important;
+}
+/* @group Base */
+.chosen-container {
+    width: 80% !important;
+}
+
+#select-button {
+    float: right !important;
+    margin: 10px 0px 0px 10px !important;
+}
