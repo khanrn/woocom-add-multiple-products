@@ -2,20 +2,47 @@
 
 namespace TheDramatist\WooComAddMultipleProducts\Settings;
 
+/**
+ * Class Settings
+ *
+ * @author  Khan M Rashedun-Naby <naby88@gmail.com>
+ * @link    http://rnaby.github.io/
+ *
+ * @since   3.0.0
+ *
+ * @package woocom-add-multiple-products
+ * @subpackage woocom-add-multiple-products/Settings
+ * @license https://www.gnu.org/licenses/gpl.txt GPL
+ */
 class Settings {
 	
+	/**
+	 * Settings constructor.
+	 *
+	 * @since 3.0.0
+	 */
 	public function __construct() {
 	
 	}
 	
+	/**
+	 * Hook initialization
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function init() {
 		add_action( 'admin_menu', [ $this, 'menu_page' ] );
 		add_action( 'admin_init', [ $this, 'plugin_redirect' ] );
 	}
 	
-	// Admin Menu Page Calling function.
+	/**
+	 * Admin Menu Page Calling function.
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function menu_page() {
-		
 		//create new top-level menu
 		add_menu_page(
 			__( 'WooCom Add Multiple Products Settings', 'woocom-add-multiple-products' ),
@@ -30,7 +57,12 @@ class Settings {
 		add_action( 'admin_init', [ $this, 'register_settings' ] );
 	}
 	
-	// Admin Setting Registration
+	/**
+	 * Admin Setting Registration
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function register_settings() {
 		//register our settings
 		register_setting( 'woocom-amp-settings-group', 'woocom_amp_product_cat' );
@@ -38,11 +70,22 @@ class Settings {
 		register_setting( 'woocom-amp-settings-group', 'woocom_amp_user_role' );
 	}
 	
-	// Admin Settings Page Function
+	/**
+	 * Admin Settings Page Function
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function settings_form() {
 		include 'Views/html-admin-form.php';
 	}
 	
+	/**
+	 * Get product category.
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function get_product_cats() {
 		$product_cat        = get_terms( 'product_cat', 'hide_empty=0' );
 		$product_cat_option = (array) get_option( 'woocom_amp_product_cat' );
@@ -74,6 +117,12 @@ class Settings {
 		endif;
 	}
 	
+	/**
+	 * Admin settings page roles dropdown.
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function roles_dropdown( $selected ) {
 		
 		$selected = (array) $selected;
@@ -96,6 +145,12 @@ class Settings {
 		}
 	}
 	
+	/**
+	 * Plugin redirection.
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function plugin_redirect() {
 		if ( get_option( 'woocom_amp_do_activation_redirect', false ) ) {
 			delete_option( 'woocom_amp_do_activation_redirect' );

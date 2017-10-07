@@ -5,7 +5,14 @@ namespace TheDramatist\WooComAddMultipleProducts\Assets;
 /**
  * Class AssetsEnqueue
  *
- * @package TheDramatist\WooComAddMultipleProducts\Assets
+ * @author  Khan M Rashedun-Naby <naby88@gmail.com>
+ * @link    http://rnaby.github.io/
+ *
+ * @since   3.0.0
+ *
+ * @package woocom-add-multiple-products
+ * @subpackage woocom-add-multiple-products/Assets
+ * @license https://www.gnu.org/licenses/gpl.txt GPL
  */
 class AssetsEnqueue {
 	
@@ -19,10 +26,11 @@ class AssetsEnqueue {
 	/**
 	 * Enqueueing scripts and styles.
 	 *
+	 * @since 3.0.0
+	 *
 	 * @return void
 	 */
 	public function init() {
-		
 		// Public scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'public_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'public_scripts' ] );
@@ -34,10 +42,11 @@ class AssetsEnqueue {
 	/**
 	 * Enqueueing public_styles.
 	 *
+	 * @since 3.0.0
+	 *
 	 * @return void
 	 */
 	public function public_styles() {
-		
 		wp_enqueue_style(
 			'woocom-add-multiple-products-public-css',
 			plugin_dir_url( __FILE__ ) . '../../assets/css/public.css',
@@ -50,10 +59,11 @@ class AssetsEnqueue {
 	/**
 	 * Enqueueing public_scripts.
 	 *
+	 * @since 3.0.0
+	 *
 	 * @return void
 	 */
 	public function public_scripts() {
-		
 		// Registering the script.
 		wp_register_script(
 			'woocom-add-multiple-products-public-js',
@@ -74,11 +84,12 @@ class AssetsEnqueue {
 		);
 		// Enqueueing JS file.
 		wp_enqueue_script( 'woocom-add-multiple-products-public-js' );
-		
 	}
 	
 	/**
 	 * Enqueueing admin styles.
+	 *
+	 * @since 3.0.0
 	 *
 	 * @return void
 	 */
@@ -105,10 +116,11 @@ class AssetsEnqueue {
 	/**
 	 * Enqueueing admin scripts.
 	 *
+	 * @since 3.0.0
+	 *
 	 * @return void
 	 */
 	public function admin_scripts() {
-		
 		// WooCommerce credentials.
 		global $woocommerce;
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';

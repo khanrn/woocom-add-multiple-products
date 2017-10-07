@@ -32,6 +32,12 @@ Yes. You can.
 
 # Changelog
 
+## 3.0.0
+* Heavily refactored
+* PHP Codesniffer checked. Almost all the WordPress VIP rules followed.
+* Full new structure.
+* Modern PHP principle followed.
+
 ## 2.0.0
 * Boilerplate added
 * PHPDoc generated.

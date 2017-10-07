@@ -2,12 +2,36 @@
 
 namespace TheDramatist\WooComAddMultipleProducts\Frontend;
 
+/**
+ * Class Frontend
+ *
+ * @author  Khan M Rashedun-Naby <naby88@gmail.com>
+ * @link    http://rnaby.github.io/
+ *
+ * @since   3.0.0
+ *
+ * @package woocom-add-multiple-products
+ * @subpackage woocom-add-multiple-products/Frontend
+ * @license https://www.gnu.org/licenses/gpl.txt GPL
+ */
 class Frontend {
-
+	
+	/**
+	 * Frontend constructor.
+	 *
+	 * @since 3.0.0
+	 */
 	public function __construct() {
 
 	}
-
+	
+	/**
+	 * Plugin initialize hook.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return void
+	 */
 	public function init() {
 		// Action Hooks.
 		add_action( 'woocommerce_after_cart', [ $this, 'input_from' ] );
@@ -18,8 +42,14 @@ class Frontend {
 		// Shortcode for adding products input to different places
 		add_shortcode( 'wamp_product_input', [ $this, 'input_form_shortcode' ] );
 	}
-
-	// Product input form
+	
+	/**
+	 * Plugin input form render.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return void
+	 */
 	public function input_from() {
 		if ( get_option( 'woocom_amp_user_check' ) == 1 && is_user_logged_in() ) {
 			$user_role = get_option( 'woocom_amp_user_role' );
@@ -37,10 +67,20 @@ class Frontend {
 			include 'Views/html-input-field.php';
 		}
 	}
-
-	// Product input form
+	
+	/**
+	 * Shortcode render.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param $atts
+	 */
 	public function input_form_shortcode( $atts ) {
-		if ( get_option( 'woocom_amp_user_check' ) == 1 && is_user_logged_in() ) {
+		$prod_cat_atts = shortcode_atts( [ 'prod_cat' => '' ], $atts );
+		if (
+			'1' === get_option( 'woocom_amp_user_check' )
+			&& is_user_logged_in()
+		) {
 			$user_role = (array) get_option( 'woocom_amp_user_role' );
 			$cu_roles  = $this->get_user_role( get_current_user_id() );
 			$is_auth   = array_intersect( $user_role, $cu_roles ) ? 'true'
@@ -56,8 +96,14 @@ class Frontend {
 			include 'Views/html-sc-input-field.php';
 		}
 	}
-
-	// Ajax function
+	
+	/**
+	 * Ajax functionality
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return void
+	 */
 	public function ajax_cart() {
 		global $woocommerce;
 		// Getting and sanitizing $_POST data.
@@ -67,8 +113,14 @@ class Frontend {
 		}
 		wp_die();
 	}
-
-	// Get products on list.
+	
+	/**
+	 * Get products on list.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return void
+	 */
 	public function get_products() {
 		// Get category settings
 		$product_cat_setting = (array) get_option( 'woocom_amp_product_cat' );
@@ -97,9 +149,15 @@ class Frontend {
 
 		$this->wp_query( $args );
 	}
-
-	// Get products on list for dynamic shortcode.
-	public function get_shortcode_products( $prod_cat_atts = [] ) {
+	
+	/**
+	 * Get products on list for dynamic shortcode.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param array $prod_cat_atts
+	 */
+	public function get_shortcode_products( $prod_cat_atts ) {
 		$prod_cats = explode( ',', $prod_cat_atts['prod_cat'] );
 		// WP_Query arg for "Product" post type.
 		$args = [
@@ -117,7 +175,14 @@ class Frontend {
 
 		$this->wp_query( $args );
 	}
-
+	
+	/**
+	 * Wrapper around WP_Query
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param void
+	 */
 	public function wp_query( $args = [] ) {
 		// New Query
 		$loop = new WP_Query( $args );
@@ -142,7 +207,16 @@ class Frontend {
 		}
 		wp_reset_postdata();
 	}
-
+	
+	/**
+	 * Get user role.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param $user_id
+	 *
+	 * @return mixed
+	 */
 	public function get_user_role( $user_id ) {
 		if ( is_user_logged_in() ) {
 			$user = new WP_User( $user_id );

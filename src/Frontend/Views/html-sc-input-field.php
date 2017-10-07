@@ -1,19 +1,3 @@
-<?php 
-/**
- *vide a public-facing view for the plugin
- *
- * This file is used to markup the public-facing aspects of the plugin.
- *
- * @link       http://rashedun.me
- * @since      2.0.0
- *
- * @package    Woocom_Add_Multiple_Products
- * @subpackage Woocom_Add_Multiple_Products/public/partials
-*/
-$prod_cat_atts = shortcode_atts( array(
-    'prod_cat' => '',
-), $atts );
-?>
 <div id="wamp_form">
     <h4><?php _e( 'Add Product(s)...', 'sodathemes' )?></h4>
     <!-- multiple dropdown -->

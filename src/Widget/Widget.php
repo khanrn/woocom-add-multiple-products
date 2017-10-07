@@ -2,8 +2,25 @@
 
 namespace TheDramatist\WooComAddMultipleProducts\Widget;
 
+/**
+ * Class Widget
+ *
+ * @author  Khan M Rashedun-Naby <naby88@gmail.com>
+ * @link    http://rnaby.github.io/
+ *
+ * @since   3.0.0
+ *
+ * @package woocom-add-multiple-products
+ * @subpackage woocom-add-multiple-products/Widget
+ * @license https://www.gnu.org/licenses/gpl.txt GPL
+ */
 class Widget {
 	
+	/**
+	 * Widget constructor.
+	 *
+	 * @since 3.0.0
+	 */
 	public function __construct() {
 		
 		parent::__construct(
@@ -18,12 +35,24 @@ class Widget {
 		);
 	}
 	
+	/**
+	 * Widget initialization.
+	 *
+	 * @since 3.0.0
+	 * @return void
+	 */
 	public function init() {
 		add_action( 'widgets_init', function () {
 			register_widget( $this );
 		} );
 	}
 	
+	/**
+	 * Admin form.
+	 *
+	 * @since 3.0.0
+	 * @param $instance
+	 */
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, [
 			'woocom-amp-title' => '',
@@ -31,11 +60,31 @@ class Widget {
 		include( plugin_dir_path( __FILE__ ) . 'Views/html-admin-view.php' );
 	}
 	
+	/**
+	 * Widget update method.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param $new_instance
+	 * @param $old_instance
+	 *
+	 * @return mixed
+	 */
 	public function update( $new_instance, $old_instance ) {
 		$old_instance['woocom-amp-title'] = strip_tags( stripslashes( $new_instance['woocom-amp-title'] ) );
 		return $old_instance;
 	}
 	
+	/**
+	 * Widget forntend.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param $args
+	 * @param $instance
+	 *
+	 * @return void
+	 */
 	public function widget( $args, $instance ) {
 		$title = $instance['woocom-amp-title'];
 		if (
@@ -69,6 +118,15 @@ class Widget {
 		}
 	}
 	
+	/**
+	 * Get user roles
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param $user_ID
+	 *
+	 * @return mixed
+	 */
 	public function get_user_role( $user_ID ) {
 		if ( is_user_logged_in() ) {
 			$user = new WP_User( $user_ID );
@@ -78,6 +136,13 @@ class Widget {
 		}
 	}
 	
+	/**
+	 * Get all products.
+	 *
+	 * @since 3.0.0
+	 *
+	 * @return void
+	 */
 	public function get_products() {
 		// Get category settings
 		$product_cat_setting = (array)get_option('woocom_amp_product_cat');
