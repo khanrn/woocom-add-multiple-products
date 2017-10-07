@@ -192,8 +192,9 @@ class Frontend {
 			foreach ( $rds as $rd ) {
 				$product   = new WC_Products( $rd );
 				$sku       = $product->get_sku();
-				$stock     = $product->is_in_stock() ? __( ' -- In stock', 'sodathemes' )
-					: __( ' -- Out of stock', 'sodathemes' );
+				$stock     = $product->is_in_stock()
+					? __( ' -- In stock', 'woocom-add-multiple-products' )
+					: __( ' -- Out of stock', 'woocom-add-multiple-products' );
 				$disablity = $product->is_in_stock() ? '' : 'disabled';
 				echo '<option datad="'
 					. esc_attr( $sku ) . '" value="'

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WooCom Add Multiple Products dev-master\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocom-add-"
 "multiple-products\n"
-"POT-Creation-Date: 2017-10-07 17:20:08+00:00\n"
+"POT-Creation-Date: 2017-10-07 18:39:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: src/Frontend/Frontend.php:195 src/Widget/Widget.php:179
+#: src/Frontend/Frontend.php:196 src/Widget/Widget.php:189
 msgid " -- In stock"
 msgstr ""
 
-#: src/Frontend/Frontend.php:196 src/Widget/Widget.php:179
+#: src/Frontend/Frontend.php:197 src/Widget/Widget.php:190
 msgid " -- Out of stock"
 msgstr ""
 
