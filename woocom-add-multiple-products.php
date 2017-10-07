@@ -86,6 +86,7 @@ function initialize() {
 		( new Assets\AssetsEnqueue() )->init();
 		( new Settings\Settings() )->init();
 		( new Frontend\Frontend() )->init();
+		( new Widget\Widget() )->init();
 
 	} catch ( \Throwable $throwable ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
