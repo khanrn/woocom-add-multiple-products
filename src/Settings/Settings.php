@@ -1,6 +1,6 @@
-<?php
+<?php # -*- coding: utf-8 -*-
 
-namespace TheDramatist\Settings;
+namespace TheDramatist\WooComAddMultipleProducts\Settings;
 
 class Settings {
 	

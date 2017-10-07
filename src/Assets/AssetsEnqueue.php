@@ -8,19 +8,21 @@ namespace TheDramatist\WooComAddMultipleProducts\Assets;
  * @package TheDramatist\WooComAddMultipleProducts\Assets
  */
 class AssetsEnqueue {
-
+	
 	/**
 	 * AssetsEnqueue constructor.
 	 */
 	public function __construct() {
-
+	
 	}
-
+	
 	/**
 	 * Enqueueing scripts and styles.
+	 *
 	 * @return void
 	 */
 	public function init() {
+		
 		// Public scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'public_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'public_scripts' ] );
@@ -28,12 +30,14 @@ class AssetsEnqueue {
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
 	}
-
+	
 	/**
 	 * Enqueueing public_styles.
+	 *
 	 * @return void
 	 */
 	public function public_styles() {
+		
 		wp_enqueue_style(
 			'woocom-add-multiple-products-public-css',
 			plugin_dir_url( __FILE__ ) . '../../assets/css/public.css',
@@ -42,12 +46,14 @@ class AssetsEnqueue {
 			'all'
 		);
 	}
-
+	
 	/**
 	 * Enqueueing public_scripts.
+	 *
 	 * @return void
 	 */
 	public function public_scripts() {
+		
 		// Registering the script.
 		wp_register_script(
 			'woocom-add-multiple-products-public-js',
@@ -57,9 +63,9 @@ class AssetsEnqueue {
 			true
 		);
 		// Local JS data
-		$local_js_data = array(
+		$local_js_data = [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
-		);
+		];
 		// Pass data to myscript.js on page load
 		wp_localize_script(
 			'woocom-add-multiple-products-public-js',
@@ -68,14 +74,16 @@ class AssetsEnqueue {
 		);
 		// Enqueueing JS file.
 		wp_enqueue_script( 'woocom-add-multiple-products-public-js' );
-
+		
 	}
 	
 	/**
 	 * Enqueueing admin styles.
+	 *
 	 * @return void
 	 */
 	public function admin_styles() {
+		
 		// WooCommerce credentials.
 		global $woocommerce;
 		wp_enqueue_style(
@@ -96,9 +104,11 @@ class AssetsEnqueue {
 	
 	/**
 	 * Enqueueing admin scripts.
+	 *
 	 * @return void
 	 */
 	public function admin_scripts() {
+		
 		// WooCommerce credentials.
 		global $woocommerce;
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -118,9 +128,9 @@ class AssetsEnqueue {
 			true
 		);
 		// Local JS data
-		$local_js_data = array(
+		$local_js_data = [
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
-		);
+		];
 		// Pass data to myscript.js on page load
 		wp_localize_script(
 			'woocom-add-multiple-products-admin-js',
