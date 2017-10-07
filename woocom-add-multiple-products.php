@@ -6,7 +6,7 @@
  * Plugin URI:  https://github.com/rnaby
  * Author:      TheDramatist
  * Author URI:  http://rnaby.github.com/
- * Version:     dev-master
+ * Version:     3.0.0
  * License:     GPL-2.0
  * Text Domain: woocom-add-multiple-products
  */
