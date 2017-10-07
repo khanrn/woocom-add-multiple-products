@@ -1,0 +1,110 @@
+# Copyright (C) 2017 WooCom Add Multiple Products
+# This file is distributed under the same license as the WooCom Add Multiple Products package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCom Add Multiple Products dev-master\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocom-add-"
+"multiple-products\n"
+"POT-Creation-Date: 2017-10-07 17:20:08+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: src/Frontend/Frontend.php:195 src/Widget/Widget.php:179
+msgid " -- In stock"
+msgstr ""
+
+#: src/Frontend/Frontend.php:196 src/Widget/Widget.php:179
+msgid " -- Out of stock"
+msgstr ""
+
+#: src/Frontend/Views/html-input-field.php:17
+#: src/Widget/Views/html-public-view.php:3
+msgid "Add Product(s)"
+msgstr ""
+
+#: src/Frontend/Views/html-input-field.php:23
+#: src/Frontend/Views/html-sc-input-field.php:4
+#: src/Widget/Views/html-public-view.php:10
+msgid "Choose a product..."
+msgstr ""
+
+#: src/Frontend/Views/html-input-field.php:26
+#: src/Frontend/Views/html-sc-input-field.php:5
+#: src/Widget/Views/html-public-view.php:14
+msgid "Choose products by SKU or Name...."
+msgstr ""
+
+#: src/Frontend/Views/html-input-field.php:35
+#: src/Frontend/Views/html-sc-input-field.php:14
+#: src/Widget/Views/html-public-view.php:24
+msgid "Add Item(s)"
+msgstr ""
+
+#: src/Frontend/Views/html-sc-input-field.php:2
+msgid "Add Product(s)..."
+msgstr ""
+
+#: src/Settings/Settings.php:48
+msgid "WooCom Add Multiple Products Settings"
+msgstr ""
+
+#: src/Settings/Settings.php:49
+msgid "WooCom AMP"
+msgstr ""
+
+#: src/Settings/Views/html-admin-form.php:2
+msgid "WooCom Add Multiple Products %s"
+msgstr ""
+
+#: src/Settings/Views/html-admin-form.php:5
+msgid ""
+"Thank you for downloading this product. For any kind of support please post "
+"in forum or mail me at <a href=\"mailto:naby88@gmail.com\">naby88@gmail.com</"
+"a><br>"
+msgstr ""
+
+#: src/Settings/Views/html-admin-form.php:15
+msgid "Please select a product category...."
+msgstr ""
+
+#: src/Widget/Views/html-admin-view.php:2
+msgid "Title"
+msgstr ""
+
+#. #-#-#-#-#  woocom-add-multiple-products.pot (WooCom Add Multiple Products dev-master)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: src/Widget/Widget.php:29
+msgid "WooCom Add Multiple Products"
+msgstr ""
+
+#: src/Widget/Widget.php:33
+msgid "WooCom Add Multiple Products Widget."
+msgstr ""
+
+#: woocom-add-multiple-products.php:56
+msgid ""
+"You don't have <b>WooCommerce</b> activated. Please Activate <b>WooCommerce</"
+"b> and then try to activate again <b>WooCom Add Multiple Products</b>."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/rnaby"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A plugin for adding bulk product by SKU or product name to cart when you're "
+"in cart."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "TheDramatist"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://rnaby.github.com/"
+msgstr ""
