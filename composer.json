@@ -1,0 +1,24 @@
+{
+	"name": "rnaby/woocom-add-multiple-products",
+	"description": "A plugin for adding bulk product by SKU or product name to cart when you're in cart.",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"license": "GPL-2.0",
+	"type": "wordpress-plugin",
+	"authors": [
+		{
+			"name": "Khan M Rashedun-Naby",
+			"email": "naby88@gmail.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+	},
+	"require-dev": {
+	},
+	"autoload": {
+		"psr-4": {
+			"TheDramatist\\WooComAddMultipleProducts\\": "src/"
+		}
+	}
+}

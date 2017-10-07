@@ -1,0 +1,1 @@
+# WooCom Add Multiple Products assets for the wordpress.org repository

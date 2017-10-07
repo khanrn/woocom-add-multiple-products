@@ -1,89 +1,66 @@
-<?php
+<?php # -*- coding: utf-8 -*-
 
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              http://sodathemes.com
- * @since             2.0.0
- * @package           Woocom_Add_Multiple_Products
- *
- * @wordpress-plugin
- * Plugin Name:       WooCom Add Multiple Products
- * Plugin URI:        http://sodathemes.com/product/woocom-add-multiple-products/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           2.0.0
- * Author:            SodaThemes
- * Author URI:        http://sodathemes.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       woocom-add-multiple-products
- * Domain Path:       /languages
+ * Plugin Name: WooCom Add Multiple Products
+ * Description: A plugin for adding bulk product by SKU or product name to cart when you're in cart.
+ * Plugin URI:  https://github.com/rnaby
+ * Author:      TheDramatist
+ * Author URI:  http://rnaby.github.com/
+ * Version:     dev-master
+ * License:     GPL-3.0
+ * Text Domain: woocom-add-multiple-products
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+namespace TheDramatist\WooComAddMultipleProducts;
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-woocom-add-multiple-products-activator.php
- */
-function activate_woocom_add_multiple_products() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woocom-add-multiple-products-activator.php';
-	Woocom_Add_Multiple_Products_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-woocom-add-multiple-products-deactivator.php
- */
-function deactivate_woocom_add_multiple_products() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-woocom-add-multiple-products-deactivator.php';
-	Woocom_Add_Multiple_Products_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_woocom_add_multiple_products' );
-register_deactivation_hook( __FILE__, 'deactivate_woocom_add_multiple_products' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-woocom-add-multiple-products.php';
-
-/**
- * Begins execution of the plugin.
+ * Initialize a hook on plugin activation.
  *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    2.0.0
+ * @return void
  */
-function run_woocom_add_multiple_products() {
-
-	$plugin = new Woocom_Add_Multiple_Products();
-	$plugin->run();
-
+function activate() {
+     do_action( 'woocom-add-multiple-products_plugin_activate' );
 }
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
+
 /**
- * Check if WooCommerce is active
- **/
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-	run_woocom_add_multiple_products();
-} else {
-	add_action( 'admin_notices', 'sodathemes_wamp_admin_notice__error' );
+ * Initialize a hook on plugin deactivation.
+ *
+ * @return void
+ */
+function deactivate() {
+     do_action( 'woocom-add-multiple-products_plugin_deactivate' );
+}
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
+
+/**
+ * Initialize all the plugin things.
+ *
+ * @return void
+ * @throws \Throwable
+ */
+function initialize() {
+
+	try {
+		/**
+		 * Checking if vendor/autoload.php exists or not.
+		 */
+		if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+			/** @noinspection PhpIncludeInspection */
+			require_once __DIR__ . '/vendor/autoload.php';
+		}
+
+		/**
+		 * Calling modules.
+		 */
+		( new Assets\AssetsEnqueue() )->init();
+
+	} catch ( \Throwable $throwable ) {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			throw $throwable;
+		}
+		do_action( 'woocom-add-multiple-products_error', $throwable );
+	}
 }
 
-function sodathemes_wamp_admin_notice__error() {
-	$class = 'notice notice-error';
-	$message = __( 'You don\'t have WooCommerce activated. Please Activate WooCommerce and then try to activate again WooCom Add Multiple Products.', 'sodathemes' );
-
-	printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message ); 
-}
+add_action( 'plugins_loaded', __NAMESPACE__ . '\\initialize' );
