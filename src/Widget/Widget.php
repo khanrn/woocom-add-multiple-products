@@ -14,7 +14,7 @@ namespace TheDramatist\WooComAddMultipleProducts\Widget;
  * @subpackage woocom-add-multiple-products/Widget
  * @license https://www.gnu.org/licenses/gpl.txt GPL
  */
-class Widget {
+class Widget extends \WP_Widget {
 	
 	/**
 	 * Widget constructor.
