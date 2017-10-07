@@ -7,7 +7,7 @@
  * Author:      TheDramatist
  * Author URI:  http://rnaby.github.com/
  * Version:     dev-master
- * License:     GPL-3.0
+ * License:     GPL-2.0
  * Text Domain: woocom-add-multiple-products
  */
 
@@ -42,6 +42,28 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
 function initialize() {
 
 	try {
+		
+		/**
+		 * Check if WooCommerce is active
+		 **/
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+			add_action(
+				'admin_notices', function () {
+				
+				$class   = 'notice notice-error is-dismissible';
+				$message = __(
+					'You don\'t have <b>WooCommerce</b> activated. Please Activate <b>WooCommerce</b> and then try to activate again <b>WooCom Add Multiple Products</b>.',
+					'woocom-add-multiple-products'
+				);
+				
+				printf( '<div class="%1$s"><p>%2$s</p></div>', $class, $message );
+			}
+			);
+			
+			return;
+		}
 		/**
 		 * Checking if vendor/autoload.php exists or not.
 		 */
@@ -49,7 +71,15 @@ function initialize() {
 			/** @noinspection PhpIncludeInspection */
 			require_once __DIR__ . '/vendor/autoload.php';
 		}
-
+		
+		// Translation directory updated !
+		load_plugin_textdomain(
+			'woocom-add-multiple-products',
+			true,
+			basename( dirname( __FILE__ ) ) . '/languages'
+		);
+		
+		
 		/**
 		 * Calling modules.
 		 */
