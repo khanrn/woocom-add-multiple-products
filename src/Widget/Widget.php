@@ -26,11 +26,17 @@ class Widget extends \WP_Widget {
 		parent::__construct(
 			'woocom_add_multiple_products_widget',
 			// name of the widget
-			__( 'WooCom Add Multiple Products', 'woocom-add-multiple-products' ),
+			__(
+				'WooCom Add Multiple Products',
+				'woocom-add-multiple-products'
+			),
 			// widget options
 			[
 				'classname'   => 'woocom-amp-widget',
-				'description' => __( 'WooCom Add Multiple Products Widget.', 'woocom-add-multiple-products' ),
+				'description' => __(
+					'WooCom Add Multiple Products Widget.',
+					'woocom-add-multiple-products'
+				),
 			]
 		);
 	}
@@ -61,7 +67,7 @@ class Widget extends \WP_Widget {
 		$instance = wp_parse_args( (array) $instance, [
 			'woocom-amp-title' => '',
 		] );
-		include( plugin_dir_path( __FILE__ ) . 'Views/html-admin-view.php' );
+		include plugin_dir_path( __FILE__ ) . 'Views/html-admin-view.php';
 	}
 	
 	/**
@@ -76,7 +82,9 @@ class Widget extends \WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		
-		$old_instance[ 'woocom-amp-title' ] = strip_tags( stripslashes( $new_instance[ 'woocom-amp-title' ] ) );
+		$old_instance['woocom-amp-title'] = strip_tags(
+			stripslashes( $new_instance['woocom-amp-title'] )
+		);
 		
 		return $old_instance;
 	}
@@ -93,20 +101,25 @@ class Widget extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		
-		$title = $instance[ 'woocom-amp-title' ];
+		$title = $instance['woocom-amp-title'];
 		if (
 			'1' === get_option( 'woocom_amp_user_check' )
 			&& is_user_logged_in()
 		) {
 			$user_role = get_option( 'woocom_amp_user_role' );
 			$cu_roles  = $this->get_user_role( get_current_user_id() );
-			$is_auth   = array_intersect( $user_role, $cu_roles ) ? 'true' : 'false';
+			
+			$is_auth   = array_intersect(
+				$user_role,
+				$cu_roles
+			) ? 'true' : 'false';
+			
 			if ( ! empty( $user_role ) ) {
 				if ( $is_auth ) {
 					if ( ! is_cart() ) {
-						echo $args[ 'before_widget' ];
+						echo $args['before_widget'];
 						include 'Views/html-public-view.php';
-						echo $args[ 'after_widget' ];
+						echo $args['after_widget'];
 					}
 				}
 			} else {
@@ -190,13 +203,13 @@ class Widget extends \WP_Widget {
 					: __( ' -- Out of stock', 'woocom-add-multiple-products' );
 				$disablity = $product->is_in_stock() ? '' : 'disabled';
 				echo '<option datad="'
-				     . esc_attr( $sku ) . '" value="'
-				     . esc_attr( $rd ) . '"'
-				     . esc_attr( $disablity ) . '>'
-				     . esc_html( $sku ) . ' -- '
-				     . esc_html( get_the_title( $rd ) )
-				     . esc_attr( $stock )
-				     . '</option>';
+					. esc_attr( $sku ) . '" value="'
+					. esc_attr( $rd ) . '"'
+					. esc_attr( $disablity ) . '>'
+					. esc_html( $sku ) . ' -- '
+					. esc_html( get_the_title( $rd ) )
+					. esc_attr( $stock )
+					. '</option>';
 			} // Loop End .
 		}
 		wp_reset_postdata();

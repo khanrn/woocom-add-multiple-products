@@ -45,7 +45,10 @@ class Settings {
 	public function menu_page() {
 		//create new top-level menu
 		add_menu_page(
-			__( 'WooCom Add Multiple Products Settings', 'woocom-add-multiple-products' ),
+			__(
+				'WooCom Add Multiple Products Settings',
+				'woocom-add-multiple-products'
+			),
 			__( 'WooCom AMP', 'woocom-add-multiple-products' ),
 			'administrator',
 			'woocom-add-multiple-products',
@@ -65,9 +68,10 @@ class Settings {
 	 */
 	public function register_settings() {
 		//register our settings
-		register_setting( 'woocom-amp-settings-group', 'woocom_amp_product_cat' );
-		register_setting( 'woocom-amp-settings-group', 'woocom_amp_user_check' );
-		register_setting( 'woocom-amp-settings-group', 'woocom_amp_user_role' );
+		$opt_group = 'woocom-amp-settings-group';
+		register_setting( $opt_group, 'woocom_amp_product_cat' );
+		register_setting( $opt_group, 'woocom_amp_user_check' );
+		register_setting( $opt_group, 'woocom_amp_user_role' );
 	}
 	
 	/**
@@ -87,31 +91,46 @@ class Settings {
 	 * @return void
 	 */
 	public function get_product_cats() {
-		$product_cat        = get_terms( 'product_cat', 'hide_empty=0' );
+		$product_cat        = get_terms(
+			'product_cat',
+			'hide_empty=0'
+		);
 		$product_cat_option = (array) get_option( 'woocom_amp_product_cat' );
 		if (
 			in_array( - 1, $product_cat_option, true )
 			|| empty( $product_cat_option )
 		) :
 			echo '<option value="-1" selected>All Products</option>';
-			foreach ( $product_cat as $product_cat_key => $product_cat_value ) {
+			foreach (
+				$product_cat as $product_cat_key => $product_cat_value
+			) {
 				echo '<option value='
 					. esc_attr( $product_cat_value->term_id ) . '>'
 					. esc_html( $product_cat_value->name ) . '</option>';
 			}
 		else :
 			echo '<option value="-1">All Products</option>';
-			foreach ( $product_cat as $product_cat_key => $product_cat_value ) {
+			foreach (
+				$product_cat as $product_cat_key => $product_cat_value
+			) {
 				if (
-					in_array( $product_cat_value->term_id, $product_cat_option, true )
+					in_array(
+						$product_cat_value->term_id,
+						$product_cat_option,
+						true
+					)
 				) {
 					echo '<option value='
-						. esc_attr( $product_cat_value->term_id ) . ' selected>'
-						. esc_html( $product_cat_value->name ) . '</option>';
+						. esc_attr( $product_cat_value->term_id )
+						. ' selected>'
+						. esc_html( $product_cat_value->name )
+						. '</option>';
 				} else {
 					echo '<option value='
-						. esc_attr( $product_cat_value->term_id ) . '>'
-						. esc_html( $product_cat_value->name ) . '</option>';
+						. esc_attr( $product_cat_value->term_id )
+						. '>'
+						. esc_html( $product_cat_value->name )
+						. '</option>';
 				}
 			}
 		endif;
@@ -132,7 +151,7 @@ class Settings {
 		foreach ( $editable_roles as $role => $details ) {
 			$name = translate_user_role( $details['name'] );
 			if (
-				in_array( $role, $selected, true ) // preselect specified role
+				in_array( $role, $selected, true )
 			) {
 				echo "<option selected='selected' value='"
 					. esc_attr( $role ) . "'>"
